@@ -63,6 +63,7 @@ public class Newtons {
                     // Update 'a' for the next iteration
                     a = xnew;
                 } else {
+                    System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
                     break;
                 }
             }
@@ -76,7 +77,7 @@ public class Newtons {
     }
 
    private boolean calculateError(double root) {
-    double error = Math.abs(root - a); // Calculate absolute error
+    double error = Math.abs(a - root); // Calculate absolute error
     if (error > Ea)
         return true; // continue iterating since error is greater than accepted error
     else
