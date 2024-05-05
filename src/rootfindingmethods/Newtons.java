@@ -9,6 +9,8 @@ package rootfindingmethods;
  *
  * @author Suzy
  */
+import static com.sun.media.jfxmediaimpl.MediaUtils.error;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Newtons {
@@ -47,7 +49,7 @@ public class Newtons {
                 xnew = a - (fx / fdx);
                 if (fx == 0)
                     break;
-                System.out.printf("iteration %d :     x = %.10f\n", i + 1, xnew);
+//                System.out.printf("iteration %d :     x = %.10f\n", i + 1, xnew);
                 a = xnew;
             }
         } else if (flag == 2) {
@@ -59,15 +61,17 @@ public class Newtons {
 
                 if (calculateError(xnew)) {
                     double error = Math.abs(xnew - a);
-                    System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
+//                    System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
                     // Update 'a' for the next iteration
                     a = xnew;
                 } else {
-                    System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
+                   double error = Math.abs(xnew - a);
+//                   System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
                     break;
-                }
+                } 
             }
         }
+        System.out.printf("Approximate roots: [%f]%n", xnew); 
     }
 
     private void Getderivative() {

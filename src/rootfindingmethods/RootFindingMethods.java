@@ -28,12 +28,14 @@ public class RootFindingMethods {
             case 1:
                 System.out.println("Enter the number of iterations: ");
                 itr = scanner.nextInt();
+                e=0.10;//default
                 break;
             case 2:
                 System.out.println("Enter the error limit: ");
                 e = scanner.nextDouble();
                 System.out.println("Enter the exact value: ");
                 exact = scanner.nextDouble();
+                itr=50;
                 break;
             default:
                 System.out.println("Invalid choice. Please re-enter.");

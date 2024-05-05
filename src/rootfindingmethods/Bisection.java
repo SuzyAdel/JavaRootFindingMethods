@@ -12,7 +12,7 @@ public class Bisection {
         this.a = a;
         this.b = b;
         this.Ea = Ea;
-        this.itr = itr;
+        this.itr =itr;
     }
 
     public void setEquation(String equation) {
@@ -34,7 +34,7 @@ public class Bisection {
         for (int i = 0; i < itr; i++) {
             double x = (a + b) / 2.0;
             double fx = ob.evaluateExpression(eq, x);
-
+         
             if (fx == 0.0 || calculateError(x) == -1) {
                 // Found the root or reached desired accuracy
                 root1 = root2 = x;
@@ -51,14 +51,14 @@ public class Bisection {
                 root2 = x;
             }
 
-            System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fx, root1, root2);
+//            System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fx, root1, root2);
         }
 
         System.out.printf("Approximate roots: [%f,%f]%n", root1, root2);
     }
 
     public int calculateError(double root) {
-    double error = Math.abs(root - (a + b) / 2.0); // Calculate absolute error
+    double error = Math.abs(root - ((a + b) / 2.0)); // Calculate absolute error
     if (error > Ea)
         return -1; // end iteration
     else
