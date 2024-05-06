@@ -16,14 +16,22 @@ public class Secant {
     private double root1; // +ve
     private double root2; // -ve
     public String eq;
-    private int itr;
+    private int itr ,flag=3;
 
-    public Secant(double a, double b, double Ea, int itr) {
+    public Secant(double a, double b, int itr) {
+        this.a = a;
+        this.b = b;
+        this.itr = itr;
+        flag = 1;
+    }
+
+    public Secant(double a, double b, double Ea) {
         this.a = a;
         this.b = b;
         this.Ea = Ea;
-        this.itr = itr;
+        flag=2;
     }
+    
 
     public void setEquation(String equation) {
         this.eq = equation;
@@ -40,7 +48,7 @@ public class Secant {
 
             if (fc == 0.0 || calculateError(c) == -1) {
                 // Found the root or reached desired accuracy
-                root1 = root2 = c;
+//                root1 = root2 = c;
                 break;
             }
 
@@ -48,8 +56,10 @@ public class Secant {
             fa = fb;
             b = c;
             fb = fc;
-
+            
+            if(flag ==1){
             System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fc, root1, root2);
+            }
         }
 
         System.out.printf("Approximate roots: [%f,%f]%n", root1, root2);

@@ -14,6 +14,7 @@ public class RootFindingMethods {
     double a;
     double b;
     int choice;
+    static int flag = 3;
     int itr;
     double e;
     double exact;
@@ -29,6 +30,7 @@ public class RootFindingMethods {
                 System.out.println("Enter the number of iterations: ");
                 itr = scanner.nextInt();
                 e=0.10;//default
+                flag=1;
                 break;
             case 2:
                 System.out.println("Enter the error limit: ");
@@ -36,6 +38,7 @@ public class RootFindingMethods {
                 System.out.println("Enter the exact value: ");
                 exact = scanner.nextDouble();
                 itr=50;
+                flag=2;
                 break;
             default:
                 System.out.println("Invalid choice. Please re-enter.");
@@ -77,7 +80,13 @@ public class RootFindingMethods {
         System.out.println(rootFinder.eq);
 
         // Bisection Method
-        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.e, rootFinder.itr);
+        if (flag == 1){
+        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.itr);
+        }
+        else{
+        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.e);
+        }
+        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.itr);
         bisection.eq = rootFinder.eq;
         System.out.println("\nBisection Method:");
         bisection.bisectionMethod();

@@ -6,13 +6,22 @@ public class Bisection {
     private double root1; // +ve
     private double root2; // -ve
     public String eq;
-    private int itr;
+    private int itr, flag=3;
+    
+    public Bisection(double a, double b , int itr) {
+        this.a = a;
+        this.b = b;
+        this.itr =itr;
+        flag= 1;
+    }
 
-    public Bisection(double a, double b, double Ea, int itr) {
+
+    public Bisection(double a, double b, double Ea) {
         this.a = a;
         this.b = b;
         this.Ea = Ea;
         this.itr =itr;
+        flag =2;
     }
 
     public void setEquation(String equation) {
@@ -37,7 +46,7 @@ public class Bisection {
          
             if (fx == 0.0 || calculateError(x) == -1) {
                 // Found the root or reached desired accuracy
-                root1 = root2 = x;
+//                root1 = root2 = x; makes it prit 2 of the same value so ulter in the itteration itself 
                 break;
             }
 
@@ -50,8 +59,9 @@ public class Bisection {
                 a = x;
                 root2 = x;
             }
-
-//            System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fx, root1, root2);
+            if(flag==1){
+                System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fx, root1, root2);
+            }
         }
 
         System.out.printf("Approximate roots: [%f,%f]%n", root1, root2);

@@ -13,14 +13,21 @@ public class False {
     private double[] fx = new double[50];
     private double root1; // +ve
     private double root2; // -ve
-    private int itr;
+    private int itr,flag=3;
     public String eq;
+
+    public False(double a, double b, int itr) {
+        this.a = a;
+        this.b = b;
+        this.itr = itr;
+        flag=1;
+    }
 
     public False(double a, double b, double Ea) {
         this.a = a;
         this.b = b;
         this.Ea = Ea;
-        this.itr = 50; // Maximum iterations
+        flag=2;    
     }
 
     public void setEquation(String equation) {
@@ -45,7 +52,7 @@ public class False {
 
             if (fc == 0.0 || calculateError(c) == false) {
                 // Found the root or reached desired accuracy
-                root1 = root2 = c;
+//                root1 = root2 = c;
                 break;
             } else {
             }
@@ -59,16 +66,16 @@ public class False {
                 a = c;
                 root2 = c;
             }
-
-            System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fc, root1, root2);
-
+            if (flag==1){
+             System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fc, root1, root2);   
+            }
             // Storing the value of f(c) for iteration 'i' in the array
             fx[i] = fc;
 
             if (i >= 1 && Math.abs(fx[i] - fx[i - 1]) < Ea) {
                 // If the absolute difference between f(c) of this iteration and the previous iteration is less than Ea
                 // Then, it is considered the root, and the loop is terminated
-                root1 = root2 = c;
+//                root1 = root2 = c;
                 break;
             }
         }

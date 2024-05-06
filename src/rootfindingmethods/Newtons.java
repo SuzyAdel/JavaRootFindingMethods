@@ -22,19 +22,15 @@ public class Newtons {
 
     Scanner scanner = new Scanner(System.in);
 
-    public Newtons(double a, int itr, String eq) {
+    public Newtons(double a, int itr) {
         this.a = a;
         this.itr = itr;
-        this.eq = eq;
         flag = 1;
     }
 
-    public Newtons(double a, int itr, String eq, double Ea,String derivative) {
+    public Newtons(double a,double Ea) {
         this.a = a;
-        this.itr = itr;
         this.eq = eq;
-        this.Ea=Ea;
-        this.derivative = derivative;
         flag = 2;
     }
 
@@ -49,7 +45,6 @@ public class Newtons {
                 xnew = a - (fx / fdx);
                 if (fx == 0)
                     break;
-//                System.out.printf("iteration %d :     x = %.10f\n", i + 1, xnew);
                 a = xnew;
             }
         } else if (flag == 2) {
@@ -61,14 +56,17 @@ public class Newtons {
 
                 if (calculateError(xnew)) {
                     double error = Math.abs(xnew - a);
-//                    System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
+
                     // Update 'a' for the next iteration
                     a = xnew;
                 } else {
                    double error = Math.abs(xnew - a);
-//                   System.out.printf(" iteration %d :     x = %.10f\n      ea=%f%n", i + 1, xnew, error);
                     break;
                 } 
+               if(flag==1)
+               {
+                System.out.printf("iteration %d :     x = %.10f\n", i + 1, xnew);
+               }
             }
         }
         System.out.printf("Approximate roots: [%f]%n", xnew); 
