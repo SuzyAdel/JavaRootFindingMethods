@@ -35,9 +35,12 @@ After refining the stopping condition, a logical error was identified (root1 = r
 
 **The false position method**, also known as the regula falsi method, is a numerical approach for finding roots of a function within a specified interval. It operates similarly to the bisection method but improves convergence by estimating the root based on linear interpolation between two points on the function curve. By selecting points that bound the root and iteratively refining the interval, the method gradually narrows down to the true root. While offering faster convergence than the bisection method, false position may exhibit slower convergence in some cases. However, its simplicity and ability to handle non-monotonic functions make it a valuable tool for root-finding tasks in engineering, science, and finance.
 
+In the false position method, there was a mix of issues between the breaking condition and the repetitive root problem.Another issue arose from the printing output on each iteration, stemming from the order of the for loop and the if condition.
 
 # Newton's Method:
 
 ![newtons](https://github.com/SuzyAdel/JavaRootFindingMethods/assets/128175020/6f142dff-374e-4220-b369-dda4ba2d716a)
 
 **Newton's method**, named after Sir Isaac Newton, is a powerful numerical technique for finding roots of a function. It works by iteratively improving an initial guess of the root using the function's derivative. By approximating the function with a linear equation and finding where it intersects the x-axis, Newton's method rapidly converges to the root with quadratic convergence under favorable conditions. While highly efficient for well-behaved functions, Newton's method may fail or exhibit slow convergence for certain functions or poorly chosen initial guesses. Despite this limitation, its speed and effectiveness make it a popular choice for root-finding problems in various fields, including mathematics, engineering, and physics.
+
+In Newton's method, there was a problem where "x new" was printed twice, and the derivative didn't function properly due to numerous sub-conditions of defentiation. Consequently, we modified it to prompt the user for replacement and execution readiness. Finaly fixed the print message to fit this method spesifically.
