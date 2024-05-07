@@ -26,6 +26,8 @@ Refining the conditions improved its ability to execute simple calculations accu
 
 **The secant method** is a numerical technique for finding roots, particularly useful when the function's derivative is not readily available. It approximates the root by drawing a secant line between two points on the function curve and extrapolating where it intersects the x-axis. This iterative process continues until convergence to the root is achieved. Though not always as robust as the bisection method, its simplicity and efficiency make it valuable for quick root approximation in various fields like optimization and mathematical modeling.
 
+After refining the stopping condition, a logical error was identified (root1 = root2 = c;), causing it to print the same root twice even though they were calculated separately.Addressing this issue ensured the printing of correct values and displayed the correct secant logical roots that were swappable.
+
 
 # False Position Method:
  
