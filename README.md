@@ -18,6 +18,7 @@ Writing a code to implement numerical finding methods for solving nonlinear equa
 
 The solution entails iterating under the condition (if (fa * fb >= 0)) and breaking the iteration once it reaches zero, or if (fx == 0.0 || calculateError(x) == -1), or if it reaches the error limit.
 
+Refining the conditions improved its ability to execute simple calculations accurately, considering both the error limit and the number of iterations, enhancing its speed significantly.
 
 # Secant Method:
  
