@@ -16,6 +16,7 @@ Writing a code to implement numerical finding methods for solving nonlinear equa
 
 **The bisection method** is a straightforward numerical approach for finding the root of a function within a specified interval. By iteratively narrowing down the interval based on the sign change of the function, the method converges to the root with guaranteed accuracy. Its simplicity and reliability make it a popular choice for solving a wide range of equations in engineering, science, and finance due to ease in its formula.
 
+The solution entails iterating under the condition (if (fa * fb >= 0)) and breaking the iteration once it reaches zero, or if (fx == 0.0 || calculateError(x) == -1), or if it reaches the error limit.
 
 
 # Secant Method:
