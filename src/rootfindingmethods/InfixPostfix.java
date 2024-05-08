@@ -20,13 +20,14 @@
     }
 
     public static List<Object> parseEqn(String eqn) {
-        List<Object> infix = new ArrayList<>();
-        String[] expression = eqn.split("\\s+");
-        for (String token : expression) {
-            infix.add(token);
-        }
-        return infix;
+    List<Object> infix = new ArrayList<>();
+    String[] expression = eqn.split("\\s+");
+    for (String token : expression) {
+        infix.add(token);
     }
+    return infix;
+}
+
 
     public static void replaceXWithValue(List<Object> list, double value) {
         for (int i = 0; i < list.size(); i++) {

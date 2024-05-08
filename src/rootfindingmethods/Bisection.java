@@ -1,8 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rootfindingmethods;
 
+//  @author Suzy
 
 public class Bisection {
-    private double a, b, Ea;
+    private double a, b,x, Ea;
     private double root1; // +ve
     private double root2; // -ve
     public String eq;
@@ -12,6 +18,7 @@ public class Bisection {
         this.a = a;
         this.b = b;
         this.itr =itr;
+        this.Ea=0.10;
         flag= 1;
     }
 
@@ -20,7 +27,7 @@ public class Bisection {
         this.a = a;
         this.b = b;
         this.Ea = Ea;
-        this.itr =itr;
+        this.itr =50;
         flag =2;
     }
 
@@ -41,7 +48,7 @@ public class Bisection {
         }
 
         for (int i = 0; i < itr; i++) {
-            double x = (a + b) / 2.0;
+             x = (a + b) / 2.0;
             double fx = ob.evaluateExpression(eq, x);
          
             if (fx == 0.0 || calculateError(x) == -1) {
@@ -59,16 +66,16 @@ public class Bisection {
                 a = x;
                 root2 = x;
             }
-            if(flag==1){
+//            if(flag==1){
                 System.out.printf("iteration %d: f(x) = %.10f     root= [%f,%f]%n", i + 1, fx, root1, root2);
-            }
+//            }
         }
 
-        System.out.printf("Approximate roots: [%f,%f]%n", root1, root2);
+                System.out.printf("Approximate root: [%f]", x);   
     }
 
     public int calculateError(double root) {
-    double error = Math.abs(root - ((a + b) / 2.0)); // Calculate absolute error
+    double error = (Math.abs( (root - ((a + b) / 2.0) )/root) )*100; // Calculate absolute error
     if (error > Ea)
         return -1; // end iteration
     else

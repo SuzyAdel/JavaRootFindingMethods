@@ -11,10 +11,11 @@ import java.util.Scanner;
  */
 
 public class RootFindingMethods {
+
+    private static Object newtons;
     double a;
     double b;
-    int choice;
-    static int flag = 3;
+    private static int choice;
     int itr;
     double e;
     double exact;
@@ -29,16 +30,12 @@ public class RootFindingMethods {
             case 1:
                 System.out.println("Enter the number of iterations: ");
                 itr = scanner.nextInt();
-                e=0.10;//default
-                flag=1;
                 break;
             case 2:
                 System.out.println("Enter the error limit: ");
                 e = scanner.nextDouble();
                 System.out.println("Enter the exact value: ");
                 exact = scanner.nextDouble();
-                itr=50;
-                flag=2;
                 break;
             default:
                 System.out.println("Invalid choice. Please re-enter.");
@@ -80,32 +77,62 @@ public class RootFindingMethods {
         System.out.println(rootFinder.eq);
 
         // Bisection Method
-        if (flag == 1){
-        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.itr);
-        }
-        else{
-        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.e);
-        }
+        if (choice == 1){
         Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.itr);
         bisection.eq = rootFinder.eq;
-        System.out.println("\nBisection Method:");
+        System.out.println("\n \nBisection Method:");
         bisection.bisectionMethod();
 
+        }
+        else if(choice==2){
+        Bisection bisection = new Bisection(rootFinder.a, rootFinder.b, rootFinder.e);
+        bisection.eq = rootFinder.eq;
+        System.out.println("\n \nBisection Method:");
+        bisection.bisectionMethod();
+        }
+      
         // False Position Method
+        if (choice == 1){
+        False falsePosition = new False(rootFinder.a, rootFinder.b, rootFinder.itr);
+        falsePosition.eq = rootFinder.eq;
+        System.out.println("\n \nFalse Position Method:");
+        falsePosition.falseMethod();   
+        }
+        else if (choice ==2 ){
         False falsePosition = new False(rootFinder.a, rootFinder.b, rootFinder.e);
         falsePosition.eq = rootFinder.eq;
-        System.out.println("\nFalse Position Method:");
+        System.out.println("\n \nFalse Position Method:");
         falsePosition.falseMethod();
+        }
+       
 
         // Secant Method
-        Secant secant = new Secant(rootFinder.a, rootFinder.b, rootFinder.e, rootFinder.itr);
+        if (choice ==1){
+        Secant secant = new Secant(rootFinder.a, rootFinder.b,rootFinder.itr);
         secant.eq = rootFinder.eq;
-        System.out.println("\nSecant Method:");
-        secant.secantMethod();
+        System.out.println("\n \nSecant Method:");
+        secant.secantMethod();  
+        }
+        if (choice ==2){
+        Secant secant = new Secant(rootFinder.a, rootFinder.b,rootFinder.e);
+        secant.eq = rootFinder.eq;
+        System.out.println("\n \nSecant Method:");
+        secant.secantMethod();  
+        }
 
         // Newton's Method
-        Newtons newton = new Newtons(rootFinder.a, rootFinder.itr, rootFinder.eq);
-        System.out.println("\nNewton's Method:");
+        if(choice==1){
+        Newtons newton = new Newtons(rootFinder.a,rootFinder.itr);
+        newton.eq = rootFinder.eq;
+        System.out.println("\n \nNewton's Method:");
+        newton.newtonsMethod();   
+        }
+        else if(choice==2)
+        {
+        Newtons newton = new Newtons(rootFinder.a,rootFinder.e);
+        newton.eq = rootFinder.eq;
+        System.out.println("\n \nNewton's Method:");
         newton.newtonsMethod();
+        }
     }
 }
