@@ -36,10 +36,11 @@
              for (int i = 0; i < list.size(); i++) {
                 Object obj = list.get(i);
                 if (obj.equals("x")) {
-
-
+                    newlist.add("(");
+                    newlist.add(String.valueOf(0));
                     newlist.add("-");
                     newlist.add(String.valueOf(value));
+                    newlist.add(")");
                 }
                 else{
                     newlist.add(obj);
@@ -110,14 +111,14 @@
             } 
             else 
             {
-         
+
                 char c = postfix.get(i).toString().charAt(0);
                 double b = values.pop();
                 double a = values.pop();
                 values.push(applyOp(c, a, b));
             }
         }
-        return values.pop(); // Return the final result
+            return values.pop(); // Return the final result
     }
 
     private static boolean isOperator(char c) {

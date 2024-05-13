@@ -53,8 +53,8 @@ public Secant(double a, double b, double Ea) {
                 break;
             }
             */
-            c = (b - fb * (b - a) )  / (fb - fa);
-            double fc = ob.evaluateExpression(eq, Math.abs(c));
+            c = b - (fb * (b - a)) / (fb - fa);
+            double fc = ob.evaluateExpression(eq, c);
 
             if ((fc == 0.0 || calculateError(c) == -1 || b == c) && i > 0) {
                 // Found the root or reached desired accuracy
