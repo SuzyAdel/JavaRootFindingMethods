@@ -1,4 +1,7 @@
 # JavaRootFindingMethods
+
+•	Root Finding Methods (April 2024) - Implemented Java project for root-finding algorithms like Secant and Newton's methods. Integrated infix-to-postfix expression evaluator and differentiation function for accurate root calculation from user-defined equations.
+
 This repository contains a Java implementation of common root-finding methods used in numerical analysis. 
 
 In many scientific and engineering problems, we encounter equations that cannot be solved analytically or algebraically. These equations may involve transcendental functions, complex relationships, or multiple variables, making it difficult to find exact solutions. However, finding the roots (or solutions) of these equations is crucial for understanding the behavior of systems or making predictions.
